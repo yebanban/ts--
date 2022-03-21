@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./reg.js"></script>
+    <!-- <script type="module" src="./slide.js"></script> -->
+    <script type="module" src="./lazyMan.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <input v-model='a' validate rule='max:12,min:3'/>
+    <input v-model='title' validate rule='max:4,min:1,isNumber'/>
+    <p v-bind="a"></p>
+    <p v-bind="title"></p> -->
+    <p>dg432fhfgh2524bh123123ku289fgdhdy675gfh</p>
+    <input type="text" />
+    <div class="slide">
+      <dt>夜半半</dt>
+      <dd>
+        <div>龙吟</div>
+      </dd>
+      <dt>明哥哥</dt>
+      <dd>
+        <div>神相</div>
+      </dd>
+      <dt>奶酱酱</dt>
+      <dd>
+        <div>素问</div>
+      </dd>
+    </div>
+    <!-- <a href="https://www.cnblogs.com/" title="开发者的网上家园">
+      <img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" />
+    </a> -->
+    <a href="https://www.cnblogs.com/">首页</a>
+  </body>
+</html>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .slide {
+    /* border: 1px solid gray; */
+    /* border-radius: 10px; */
+    width: 300px;
+    margin: 100px auto;
+  }
+  .slide dt {
+    padding: 1px 10px;
+    background-color: blue;
+    color: white;
+    overflow: visible;
+    cursor: pointer;
+  }
+  .slide dt:first-of-type {
+    /* border-top: 1px solid gray; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .slide dd {
+    overflow: hidden;
+    height: 100px;
+    width: 100%;
+    background-color: gold;
+  }
+  .slide dd:last-of-type {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .slide dd div {
+    padding: 10px;
+  }
+</style>

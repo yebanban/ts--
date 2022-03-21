@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="jsContainer">
+      <table class="game">
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="current"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script>
+    function bind() {
+      let t = document.querySelectorAll('tr')
+      console.log(1);
+      t = [...t].map(tr => {
+        return tr.querySelectorAll('td')
+      })
+      let x, y
+      for (let i = 0; i < t.length; i++) {
+        for (let j = 0; j < t[i].length; j++) {
+          if (t[i][j].getAttribute('class') == 'current') {
+            x = i
+            y = j
+            break
+          }
+        }
+      }
+      document.onkeydown = event => {
+        if (!event) return
+        var code = event.keyCode || ''
+        console.log(code);
+        if (!{ 37: 1, 38: 1, 39: 1, 40: 1 }[code]) return
+        event.preventDefault && event.preventDefault()
+        t[x][y].classList.remove('current')
+        switch (code) {
+          case 38:
+            x = x - 1 >= 0 ? x - 1 : t.length - 1
+            break
+          case 40:
+            x = x + 1 < t.length ? x + 1 : 0
+            break
+          case 37:
+            y = y - 1 >= 0 ? y - 1 : t[0].length - 1
+            break
+          case 39:
+            y = y + 1 < t[0].length ? y + 1 : 0
+            break
+        }
+        t[x][y].classList.add('current')
+        //TODO: 请实现按键控制
+      }
+      
+    }
+    bind()
+  </script>
+</html>
+<style>
+  table.game {
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+  table.game td {
+    border: 1px solid #e1e1e1;
+    padding: 0;
+    height: 30px;
+    text-align: center;
+  }
+  table.game td.current {
+    background: #1890ff;
+  }
+</style>
